@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-web-app
+spec:
+  replicas: 2 # 初始 2 個 Pod
+  selector:
+    matchLabels:
+      app: my-web-app
+  template:
+    metadata:
+      labels:
+        app: my-web-app
+    spec:
+      containers:
+      - name: web-server
+        # ⚠️ 注意：我們先用一個預設 image tag 'v1'
+        image: jerryyulin/k8s-demo-app:v1
+        ports:
+        - containerPort: 80
+        # ⚠️ 為了 HPA，必須設定 resources
+        resources:
+          requests:
+            cpu: "50m" # 請求 0.05 顆 CPU

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web-server
-        image: jerryyulin/k8s-demo-app:1
+        image: jerryyulin/k8s-demo-app:2
         ports:
         - containerPort: 80
         resources:

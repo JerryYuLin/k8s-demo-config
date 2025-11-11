@@ -14,11 +14,9 @@ spec:
     spec:
       containers:
       - name: web-server
-        # ⚠️ 注意：我們先用一個預設 image tag 'v1'
-        image: jerryyulin/k8s-demo-app:v1
+        image: jerryyulin/k8s-demo-app:1
         ports:
         - containerPort: 80
-        # ⚠️ 為了 HPA，必須設定 resources
         resources:
           requests:
             cpu: "50m" # 請求 0.05 顆 CPU

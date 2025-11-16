@@ -3,11 +3,9 @@ kind: Service
 metadata:
   name: my-web-service
 spec:
-  # ⚠️ 使用 NodePort 才能在 minikube 從外部存取
   type: NodePort 
   selector:
     app: my-web-app
   ports:
   - port: 80         # Service 的 80 埠
     targetPort: 80   # 轉發到 Pod 的 80 埠
-    # nodePort: 30080 # (可選) 固定一個埠
